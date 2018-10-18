@@ -3,6 +3,8 @@ import {View, Text} from 'react-native';
 import {connect} from 'react-redux';
 
 import { _test } from '../../store/actions';
+import styles from './styles';
+import Eachweather from '../../components/eachWeather/eachWeather'
 
 class Home extends Component {
 
@@ -11,8 +13,8 @@ class Home extends Component {
     }
     render() {
         return (
-            <View>
-                <Text style={{fontFamily: 'Roboto-Light', color: 'red'}}>Home</Text>
+            <View style={styles.container}>
+                <Eachweather />
             </View>
         )
     }

@@ -2,7 +2,7 @@
 export const appBackgroundColor = "white";
 
 // color pallate
-export const primaryFontColor = "#37344A";
+export const primaryFontColor = "#00804A";
 export const themeColor = "#00804A";
 
 // font sizes
