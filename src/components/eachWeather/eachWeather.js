@@ -9,7 +9,9 @@ const eachWeather = (props) => {
     return (
         <TouchableOpacity 
             style={styles.container}
-            onPress={() => props.navigation.navigate('WeatherDetail') }
+            onPress={
+                () => props.navigation.navigate('WeatherDetail', props.info) 
+            }
         >
             <View style={styles.locationContainer}>
                 <Text style={styles.location}>{name}</Text>
