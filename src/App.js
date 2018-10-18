@@ -5,12 +5,14 @@ import { Provider } from 'react-redux';
 import Reducers from './store/reducers/index';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import rootSaga from './store/sagas/sagas';
 
 
 export default class App extends Component {
   render() {
     const sagaMiddleware = createSagaMiddleware();
-    const store = createStore(Reducers, applyMiddleware(sagaMiddleware))
+    const store = createStore(Reducers, applyMiddleware(sagaMiddleware));
+    sagaMiddleware.run(rootSaga);
     return (
       <Provider store={store}>
         <View style={styles.container}>

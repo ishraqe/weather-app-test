@@ -1,1 +1,2 @@
-export const TEST = 'TEST';
+export const GET_WEATHER_DATA = 'GET_WEATHER_DATA';
+export const GET_WEATHER_SUCCESS = 'GET_WEATHER_SUCCESS';

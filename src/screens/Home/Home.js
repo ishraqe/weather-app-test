@@ -1,30 +1,58 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, FlatList} from 'react-native';
 import {connect} from 'react-redux';
 
-import { _test } from '../../store/actions';
+import { getWeatherOfCities } from '../../store/actions';
 import styles from './styles';
 import Eachweather from '../../components/eachWeather/eachWeather'
 
 class Home extends Component {
+   
+    state = {
+        weatherList: null
+    }
 
     componentDidMount() {
         this.props.testData();
+        console.log('in did', this.props);
+    }
+    static getDerivedStateFromProps(nextProps, prevState) {
+        console.log(nextProps, 'list');
+        if(nextProps.cityList !== prevState.weatherList) {
+            return {
+                weatherList: nextProps.cityList.list
+            };
+        }
+        return null;
+        
     }
     render() {
         return (
             <View style={styles.container}>
-                <Eachweather />
+                <FlatList
+                    data={this.state.weatherList}
+                    renderItem={({ item }) => (
+                    <Eachweather 
+                        info={item}
+                    />
+                    )}
+                />
             </View>
         )
     }
 }
 
+const mapStateToProps = ({weather}) => {
+    return {
+        cityList: weather.weatherList
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
-        testData: () => dispatch(_test())
+        testData: () => dispatch(getWeatherOfCities())
     };
 }
 
 
-export default  connect(null, mapDispatchToProps)(Home);
+export default  connect(mapStateToProps, mapDispatchToProps)(Home);

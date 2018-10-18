@@ -1,14 +1,14 @@
-import {TEST} from '../actions/types';
+import {GET_WEATHER_SUCCESS} from '../actions/types';
 
 const INITIAL_STATE = {
-    test: ''
+    weatherList: null
 };
 
 export default (state = INITIAL_STATE, actions) => {
     switch(actions.type) {
-        case TEST: 
-        console.log(actions);
-        return {...state, test: actions.payload};
+        case GET_WEATHER_SUCCESS: 
+        console.log(actions.payload, 'red');
+        return {...state, weatherList: actions.payload};
         break;
         default:
         return state;

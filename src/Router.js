@@ -19,11 +19,11 @@ const navigationStyles =StyleSheet.create( {
     color: appBackgroundColor,
     fontFamily: fontFamily,
     textAlign: 'center',
-    alignSelf: 'center'
+    alignSelf: 'center',
+    flex:1
   },
   headerStyle: {
-    backgroundColor: primaryFontColor,
-    flex:1
+    backgroundColor: primaryFontColor
   }
 });
 
@@ -36,18 +36,17 @@ export const Navigation = createStackNavigator({
   },
   Home: { 
     screen: Home,
-    navigationOptions: ({navigation}) => ({
-      title: 'Home',
-      headerStyle: navigationStyles.headerStyle,
-      headerTitle: <Text style={navigationStyles.title}>Home</Text>,
-      headerLeft : null,
-      headerRight: null,
-    })
   },
   WeatherDetail: {
       screen: WeatherDetail
   }
 },{
-  initialRouteName: 'Home'
+  initialRouteName: 'Home',
+  navigationOptions: ({navigation}) => ({
+    headerStyle: navigationStyles.headerStyle,
+    headerTitle: <Text style={navigationStyles.title}>WeatherApp</Text>,
+    headerLeft : null,
+    headerRight: null,
+  })
 });
 
