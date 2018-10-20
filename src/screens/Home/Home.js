@@ -14,10 +14,9 @@ class Home extends Component {
 
     componentDidMount() {
         this.props.testData();
-        console.log('in did', this.props);
+        
     }
     static getDerivedStateFromProps(nextProps, prevState) {
-        console.log(nextProps, 'list');
         if(nextProps.cityList !== prevState.weatherList) {
             return {
                 weatherList: nextProps.cityList.list

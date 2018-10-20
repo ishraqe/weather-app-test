@@ -4,7 +4,7 @@ import { withNavigation } from 'react-navigation';
 import styles from './styles';
 
 const eachWeather = (props) => {
-    console.log(props, 'state');
+    
     const {name,coords,main, weather} = props.info;
     return (
         <TouchableOpacity 
