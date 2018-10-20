@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "935777020210",
+    "firebase_url": "https://weatherapptest-1539877126511.firebaseio.com",
+    "project_id": "weatherapptest-1539877126511",
+    "storage_bucket": "weatherapptest-1539877126511.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:935777020210:android:f0f58eb478a8b9b1",
+        "android_client_info": {
+          "package_name": "com.weather"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "935777020210-97d1qp0s2gt9vp4st69mp8mq22k946bh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1u7EvuFOyI1BAofpJgW0CWLaalAk3ltE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

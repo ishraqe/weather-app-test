@@ -6,9 +6,37 @@ import Reducers from './store/reducers/index';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './store/sagas/sagas';
-
+import OneSignal from 'react-native-onesignal';
 
 export default class App extends Component {
+
+  componentDidMount() {
+    OneSignal.init("090e88e7-65ea-42ab-abb2-50a0ca1ced65");
+
+    OneSignal.addEventListener('received', this.onReceived);
+    OneSignal.addEventListener('opened', this.onOpened);
+    OneSignal.addEventListener('ids', this.onIds);
+  }
+  componentWillUnmount() {
+    OneSignal.removeEventListener('received', this.onReceived);
+    OneSignal.removeEventListener('opened', this.onOpened);
+    OneSignal.removeEventListener('ids', this.onIds);
+  }
+
+  onReceived(notification) {
+    console.log("Notification received: ", notification);
+  }
+
+  onOpened(openResult) {
+    console.log('Message: ', openResult.notification.payload.body);
+    console.log('Data: ', openResult.notification.payload.additionalData);
+    console.log('isActive: ', openResult.notification.isAppInFocus);
+    console.log('openResult: ', openResult);
+  }
+
+  onIds(device) {
+    console.log('Device info: ', device);
+  }
   render() {
     const sagaMiddleware = createSagaMiddleware();
     const store = createStore(Reducers, applyMiddleware(sagaMiddleware));
