@@ -22,7 +22,7 @@ class Home extends Component {
     }
     handlePushNotification = () => {
         console.log('out')
-        const hours = new Date().getHours()
+        const hours = new Date().getHours();
         const isDayTime = hours > 6 && hours < 20;
         if(isDayTime) {
             if(this.state.usersWeather) {

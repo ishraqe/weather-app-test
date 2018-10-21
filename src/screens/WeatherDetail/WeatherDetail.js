@@ -48,7 +48,7 @@ class Weather extends Component {
                             <Text style={styles.weather}>Min Temp {main.temp_min}</Text>
                         </View>
                         <View style={styles.iconContainer}>
-                            <Text style={styles.iconText}>{main.temp}</Text>
+                            <Text style={styles.iconText}>{main.temp} °C</Text>
                             <Image
                                 style={styles.icon}
                                 source={{uri: `http://openweathermap.org/img/w/${weather[0].icon}.png`}}
