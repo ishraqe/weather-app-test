@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, Image} from 'react-native';
-import MapView from 'react-native-maps';
+import MapView,{ Marker} from 'react-native-maps';
 import {connect} from 'react-redux';
 import styles from './styles';
 
@@ -23,12 +23,19 @@ class Weather extends Component {
                         <MapView
                             style={styles.map}
                             region={{
-                                latitude: 37.78825,
-                                longitude: -122.4324,
+                                latitude: coord.lat,
+                                longitude: coord.lon,
                                 latitudeDelta: 0.015,
                                 longitudeDelta: 0.0121,
                             }}
                             >
+                            <Marker
+                                coordinate= {{ 
+                                    latitude: coord.lat,
+                                    longitude: coord.lon
+                                }}
+                                title={name}
+                            />
                         </MapView>
                     </View>
                     <View style={styles.descriptionContainer}>

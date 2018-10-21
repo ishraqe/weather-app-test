@@ -8,6 +8,11 @@ import {
 } from '../globalStyles';
 
 class InitialScreen extends Component {
+    componentDidMount () {
+        setTimeout(()=>{
+            this.props.navigation.navigate('Home');
+        },5000);
+      }
     render() {
         return (
             <View style={styles.container}>

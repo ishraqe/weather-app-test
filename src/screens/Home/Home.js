@@ -25,7 +25,7 @@ class Home extends Component {
         if(this.state.usersWeather) {
             const {main} = this.state.usersWeather;
             PushNotification.localNotificationSchedule({
-                message: `Current temparature is ${main.temp} C`, // (required)
+                message: `Current temparature is ${main.temp} °C`, // (required)
                 date: new Date(Date.now() + (3 * 1000)) // in 3 secs
             });    
         }

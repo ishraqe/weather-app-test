@@ -32,21 +32,26 @@ export const Navigation = createStackNavigator({
     screen: Initial,
     navigationOptions: {
       header: null,
+      headerLeft : null,
+      headerRight: null,
     }
   },
   Home: { 
     screen: Home,
+    navigationOptions: {
+      headerLeft : null,
+      headerRight: null,
+    }
   },
   WeatherDetail: {
-      screen: WeatherDetail
+    screen: WeatherDetail
   }
 },{
-  initialRouteName: 'Home',
+  initialRouteName: 'Initial',
   navigationOptions: ({navigation}) => ({
     headerStyle: navigationStyles.headerStyle,
     headerTitle: <Text style={navigationStyles.title}>WeatherApp</Text>,
-    headerLeft : null,
-    headerRight: null,
+    headerTintColor: 'white'
   })
 });
 

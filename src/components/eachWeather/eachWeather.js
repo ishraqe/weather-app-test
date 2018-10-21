@@ -18,7 +18,7 @@ const eachWeather = (props) => {
                 <Text style={styles.weatherType}>{weather[0].main}</Text>
             </View>
             <Text style={styles.temp}>
-                {main.temp}
+                {main.temp}  °C
             </Text>
         </TouchableOpacity>
     )
