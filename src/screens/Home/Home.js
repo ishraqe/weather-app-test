@@ -22,12 +22,16 @@ class Home extends Component {
     }
     handlePushNotification = () => {
         console.log('out')
-        if(this.state.usersWeather) {
-            const {main} = this.state.usersWeather;
-            PushNotification.localNotificationSchedule({
-                message: `Current temparature is ${main.temp} °C`, // (required)
-                date: new Date(Date.now() + (3 * 1000)) // in 3 secs
-            });    
+        const hours = new Date().getHours()
+        const isDayTime = hours > 6 && hours < 20;
+        if(isDayTime) {
+            if(this.state.usersWeather) {
+                const {main} = this.state.usersWeather;
+                PushNotification.localNotificationSchedule({
+                    message: `Current temparature is ${main.temp} °C`, // (required)
+                    date: new Date(Date.now() + (3 * 1000)) // in 3 secs
+                });    
+            }
         }
     }
     static getDerivedStateFromProps(nextProps, prevState) {
